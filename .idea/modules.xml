@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/django-wagtail-test-project.iml" filepath="$PROJECT_DIR$/.idea/django-wagtail-test-project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/test_porject.iml" filepath="$PROJECT_DIR$/.idea/test_porject.iml" />
     </modules>
   </component>
 </project>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}My Site{% endblock %}</title>
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    {% include "core/includes/header.html" %}
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    {% include "core/includes/footer.html" %}
+
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>
