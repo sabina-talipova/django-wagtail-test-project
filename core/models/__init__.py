@@ -3,5 +3,5 @@ from .news_page import NewsPage
 
 __all__ = (
     "HomePage",
-    "NewsPage",
+    "NewsPage"
 )
