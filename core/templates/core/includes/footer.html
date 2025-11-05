@@ -1,9 +1,13 @@
-<footer class="footer-menu">
-  <ul>
-    {% if footer_menu %}
-      {% for item in footer_menu.menu_items.all %}
-        <li><a href="{{ item.url }}">{{ item.title }}</a></li>
-      {% endfor %}
-    {% endif %}
-  </ul>
+<footer class="footer mt-auto py-3 bg-body-secondary fixed-bottom">
+    <nav class="navbar">
+      <div class="container-fluid">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          {% if footer_menu %}
+            {% for item in footer_menu.menu_items.all %}
+              <li class="nav-item"><a href="{{ item.url }}" class="nav-link">{{ item.title }}</a></li>
+            {% endfor %}
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
 </footer>

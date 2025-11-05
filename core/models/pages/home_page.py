@@ -40,7 +40,7 @@ class HomePage(Page):
             (
                 "custom_image_block",
                 StructBlock([
-                    ("image", CustomImageBlock(required=True)),
+                    ("custom_image", CustomImageBlock(required=True)),
                 ]),
             ),
         ],

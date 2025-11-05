@@ -1,11 +1,16 @@
+{% if header_menu %}
 <header>
-    <nav class="main-menu">
-      <ul>
-        {% if header_menu %}
-          {% for item in header_menu.menu_items.all %}
-            <li><a href="{{ item.url }}">{{ item.title }}</a></li>
-          {% endfor %}
-        {% endif %}
-      </ul>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Company Name</a>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                  {% for item in header_menu.menu_items.all %}
+                    <li class="nav-item"><a href="{{ item.url }}" class="nav-link active" aria-current="page">{{ item.title }}</a></li>
+                  {% endfor %}
+                </ul>
+            </div>
+        </div>
     </nav>
 </header>
+{% endif %}

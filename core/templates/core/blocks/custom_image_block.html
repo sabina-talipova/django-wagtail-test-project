@@ -1,4 +1,11 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
 <div class="custom-block">
-  <h2>{{ self.title }}</h2>
-  <div class="custom-text">{{ self.text|richtext }}</div>
+  <h2>{{ value.title }}</h2>
+  <div class="custom-text">{{ value.text | richtext }}</div>
+
+  {% if value.image %}
+      {% image value.image fill-1200x400 as img %}
+      <img src="{{ img.url }}" alt="{{ value.title }}">
+  {% endif %}
 </div>

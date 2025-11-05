@@ -24,12 +24,18 @@ class MenuItem(models.Model):
         blank=True,
         verbose_name="External URL",
     )
+    slug = models.SlugField(
+        max_length=255,
+        blank=True,
+        help_text="Slug"
+    )
     sort_order = models.IntegerField(default=0)
 
     panels = [
         FieldPanel("title"),
         PageChooserPanel("link_page"),
         FieldPanel("link_url"),
+        FieldPanel("slug"),
     ]
 
     class Meta:
@@ -42,4 +48,8 @@ class MenuItem(models.Model):
     def url(self):
         if self.link_page:
             return self.link_page.url
-        return self.link_url
+        elif self.link_url:
+            return self.link_url
+        elif self.slug:
+            return "/" + self.slug.strip("/") + "/"
+        return "#"
