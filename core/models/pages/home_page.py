@@ -5,7 +5,12 @@ from wagtail.admin.panels import FieldPanel
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.blocks import StructBlock, CharBlock, RichTextBlock
 
+from core.models.blocks.custom_image_block import CustomImageBlock
+
 class HomePage(Page):
+    max_count = 1
+    template = "core/pages/home_page/home_page.html"
+
     subtitle = models.CharField(max_length=255, blank=True, help_text="Subtitle")
     image = models.ForeignKey(
         "wagtailimages.Image",
@@ -32,6 +37,12 @@ class HomePage(Page):
                     ("caption", CharBlock(required=False, max_length=250)),
                 ]),
             ),
+            (
+                "custom_image_block",
+                StructBlock([
+                    ("image", CustomImageBlock(required=True)),
+                ]),
+            ),
         ],
         use_json_field=True,
         blank=True,
@@ -42,8 +53,6 @@ class HomePage(Page):
         FieldPanel("image"),
         FieldPanel("blocks"),
     ]
-
-    template = "core/home_page/home_page.html"
 
     class Meta:
         verbose_name = "Home Page"

@@ -5,6 +5,8 @@ from wagtail.admin.panels import FieldPanel
 
 
 class NewsPage(Page):
+    template = "core/pages/news_page/news_page.html"
+
     intro = RichTextField(blank=True)
     body = RichTextField(blank=True)
 
@@ -13,4 +15,6 @@ class NewsPage(Page):
         FieldPanel("body"),
     ]
 
-    template = "core/news_page/news_page.html"
+    class Meta:
+        verbose_name = "News Page"
+        verbose_name_plural = "News Pages"

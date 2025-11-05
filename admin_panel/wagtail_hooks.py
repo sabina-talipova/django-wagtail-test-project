@@ -1,20 +1,31 @@
 from wagtail import hooks
 from wagtail.admin.viewsets.model import ModelViewSet
-from wagtail.images.models import Image
-from django.db import models
-from wagtail.admin.panels import FieldPanel
-from wagtail.fields import RichTextField
-from core.models.blog import Blog
+from wagtail.snippets.views.snippets import SnippetViewSet
+from core.models.data_objects.blog import Blog
+from main_menu.models.main_menu import MainMenu
 
 class BlogViewSet(ModelViewSet):
     model = Blog
+    icon = "doc-full"
     menu_label = "Blogs"
-    menu_icon = "doc-full"
     add_to_admin_menu = True
-    list_display = ("title", "date")
-    search_fields = ("title",)
+    list_display = ["title", "date"]
+    search_fields = ["title"]
 
 
 @hooks.register("register_admin_viewset")
-def register_article_viewset():
-    return BlogViewSet("blogs")
+def register_blog_viewset():
+    return BlogViewSet()
+
+# class MainMenuViewSet(SnippetViewSet):
+#     model = MainMenu
+#     icon = "menu"
+#     menu_label = "Navigation"
+#     add_to_admin_menu = True
+#     list_display = ["title"]
+#     search_fields = ["title"]
+#
+#
+# @hooks.register("register_admin_viewset")
+# def register_mainmenu_viewset():
+#     return MainMenuViewSet()

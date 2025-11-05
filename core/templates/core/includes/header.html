@@ -1,9 +1,11 @@
 <header>
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/news/">News</a></li>
-            <li><a href="/contact/">Contact</a></li>
-        </ul>
+    <nav class="main-menu">
+      <ul>
+        {% if header_menu %}
+          {% for item in header_menu.menu_items.all %}
+            <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+          {% endfor %}
+        {% endif %}
+      </ul>
     </nav>
 </header>

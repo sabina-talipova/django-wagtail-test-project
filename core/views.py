@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models.blog import Blog
+from core.models.data_objects.blog import Blog
 
 def blog_list(request):
     blogs = Blog.objects.all()
