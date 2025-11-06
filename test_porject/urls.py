@@ -1,7 +1,8 @@
 from django.conf import settings
 from django.urls import include, path
 from django.contrib import admin
-from core.views import blog_list, blog_detail
+from core.views import blog_list, blog_detail, chat_page_view
+from core.api.chat_api import chat_view
 
 from wagtail.admin import urls as wagtailadmin_urls
 from wagtail import urls as wagtail_urls
@@ -13,6 +14,8 @@ urlpatterns = [
     path("documents/", include(wagtaildocs_urls)),
     path("blogs/", blog_list, name="blog_list"),
     path("blogs/<int:pk>/", blog_detail, name="blog_detail"),
+    path("chat_page/", chat_page_view, name="chat_page"),
+    path("api/chat/", chat_view, name="chat_api"),
 ]
 
 
